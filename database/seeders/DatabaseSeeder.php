@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
         $this->call(LanguagesSeeder::class); 
-        $this->call(FormatSeeder::class); 
+        $this->call(FormatSeeder::class);
+        $this->call(TagSeeder::class);   
         $this->call(PublisherSeeder::class);              
     }
 }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('editions', function (Blueprint $table) {
             $table->id();
-            $table->title('title', 100);
+            $table->string('title', 100);
             $table->string('releaseyear', 12);
             $table->timestamps();
         });

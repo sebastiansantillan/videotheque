@@ -18,5 +18,6 @@ class FormatoSeeder extends Seeder
         Format::firstOrCreate(['id' => 'dvd', 'nombre' => 'DVD']);
         Format::firstOrCreate(['id' => 'bluray', 'nombre' => 'Blu-ray']);
         Format::firstOrCreate(['id' => '4k', 'nombre' => '4K Ultra HD Blu-Ray']);
+        Format::firstOrCreate(['id' => 'digitalcode', 'nombre' => 'Digital Code']);
     }
 }

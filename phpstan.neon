@@ -1,0 +1,17 @@
+# phpstan.neon
+
+parameters:
+    level: max
+    paths:
+        - app
+        - database
+        - routes
+        - tests
+    excludePaths:
+        - vendor/*
+        - tests/*
+        - database/migrations/*
+        - database/factories/*
+    ignoreErrors:
+        - '#^Call to an undefined method .*#'
+        - '#^Cannot call method on null#'

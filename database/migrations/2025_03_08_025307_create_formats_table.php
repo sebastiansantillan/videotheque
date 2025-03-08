@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('formatos', function (Blueprint $table) {
+        Schema::create('formats', function (Blueprint $table) {
             $table->string('id', 20)->unique();
-            $table->string('nombre', 40)->unique();
+            $table->string('name', 40)->unique();
         });
     }
 
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('formatos');
+        Schema::dropIfExists('formats');
     }
 };

@@ -6,7 +6,7 @@ use App\Models\Format;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class FormatoSeeder extends Seeder
+class FormatSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,10 +14,10 @@ class FormatoSeeder extends Seeder
     public function run(): void
     {
         //
-        Format::firstOrCreate(['id' => 'vhs', 'nombre' => 'VHS']);
-        Format::firstOrCreate(['id' => 'dvd', 'nombre' => 'DVD']);
-        Format::firstOrCreate(['id' => 'bluray', 'nombre' => 'Blu-ray']);
-        Format::firstOrCreate(['id' => '4k', 'nombre' => '4K Ultra HD Blu-Ray']);
-        Format::firstOrCreate(['id' => 'digitalcode', 'nombre' => 'Digital Code']);
+        Format::firstOrCreate(['id' => 'vhs', 'name' => 'VHS']);
+        Format::firstOrCreate(['id' => 'dvd', 'name' => 'DVD']);
+        Format::firstOrCreate(['id' => 'bluray', 'name' => 'Blu-ray']);
+        Format::firstOrCreate(['id' => '4k', 'name' => '4K Ultra HD Blu-Ray']);
+        Format::firstOrCreate(['id' => 'digitalcode', 'name' => 'Digital Code']);
     }
 }

@@ -10,10 +10,15 @@ import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
     {
-        title: 'Dashboard',
+        title: 'Dashboard123',
         href: '/dashboard',
         icon: LayoutGrid,
     },
+    {
+        title: 'Crear edición',
+        href: '/admin/edition/create',
+        icon: LayoutGrid,
+    },    
 ];
 
 const footerNavItems: NavItem[] = [

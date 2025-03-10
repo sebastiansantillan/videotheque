@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { onMounted, nextTick, ref, reactive, watch } from 'vue';
+import { onMounted, nextTick, ref, watch } from 'vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { type BreadcrumbItem } from '@/types';
-import { Head, router } from '@inertiajs/vue3';
+import { Head, useForm } from '@inertiajs/vue3';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
@@ -25,15 +25,12 @@ import 'tinymce/plugins/lists';
 import 'tinymce/plugins/table';
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Dashboard',
+        title: 'Dashboard2',
         href: '/dashboard',
     },
 ];
 
 const props = defineProps<{
-    errors: {
-        title?: string;
-    };
     edition: {
         title?: string;
         biografia?: string;
@@ -41,7 +38,7 @@ const props = defineProps<{
 
 }>();
 
-const form = reactive({
+const form = useForm({
     title: props.edition.title ?? '',
     biografia: props.edition.biografia ?? '',
 });
@@ -82,7 +79,7 @@ watch(() => form.biografia, (newValue) => {
 
 
 const store = () => {
-    router.post('/admin/edition', form);
+    form.post('/admin/edition');
 };
 </script>
 
@@ -92,19 +89,13 @@ const store = () => {
         <h1 class="text-xl font-semibold text-gray-800">Crear edición</h1>
         <form @submit.prevent="store">
         <div class="grid grid-cols-12 gap-4 my-2">
-            <div class="col-span-12 lg:col-span-6">
+            <div class="col-span-12">
                 <div class="grid gap-2">
                     <Label for="nombre">Título</Label>
                     <Input type="text" autofocus v-model="form.title"/>
-                    <div v-if="$props.errors.title">{{ $props.errors.title }}</div>                    
+                    <div v-if="form.errors.title">{{ form.errors.title }}</div>                    
                 </div>
-            </div>
-            <div class="col-span-12 lg:col-span-6">
-                <div class="grid gap-2">
-                    <Label for="apellido">Apellido</Label>
-                    <Input id="apellido" type="text" required v-model="form.title"/>                    
-                </div>
-            </div>            
+            </div>          
         </div>
         <div class="grid grid-cols-12 gap-4 my-2">
             <div class="col-span-12">

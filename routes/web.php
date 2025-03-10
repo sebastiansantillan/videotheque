@@ -15,6 +15,7 @@ Route::get('dashboard', function () {
 Route::middleware(['auth', 'verified'])->prefix('admin')->group(function () {
 
     Route::get('edition/create', [App\Http\Controllers\EditionController::class, 'create'])->name('admin.edition.create');
+    Route::post('edition', [App\Http\Controllers\EditionController::class, 'store'])->name('admin.edition.store');
 
 });
 require __DIR__.'/settings.php';
